@@ -43,7 +43,7 @@ class PiCalculatorGUI(QtWidgets.QWidget):
         num_threads = self.spin_threads.value()
         num_iterations = self.spin_iterations.value()
 
-        valor_pi, tempo_execucao = testepireal.calcular_pi(num_iterations, num_threads)
+        valor_pi, tempo_execucao = backend.calcular_pi(num_iterations, num_threads)
 
         self.label_result.setText(f"Valor de π: {valor_pi}")
         self.label_time.setText(f"Tempo de execução: {tempo_execucao:.7f} segundos")
