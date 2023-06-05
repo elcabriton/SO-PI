@@ -6,12 +6,12 @@ def calcular_pi_parte(inicio, fim, queue):
     for n in range(inicio, fim):
         termo = 4 * (-1)**n / (2*n + 1)
         pi_parcial += termo
-    queue.put(pi_parcial)
+    queue.put(pi_parcial)#parcela do pi calculada
 
 def calcular_pi(num_iteracoes, num_threads):
     queue = multiprocessing.Queue()
-    processos = []
-    tamanho_parte = num_iteracoes // num_threads
+    processos = []#lista de processos
+    tamanho_parte = num_iteracoes // num_threads#divisão inteira
 
     inicio = time.time()  # Início da contagem de tempo
 
@@ -25,7 +25,7 @@ def calcular_pi(num_iteracoes, num_threads):
     pi = 0.0
     for processo in processos:
         processo.join()
-        pi += queue.get()
+        pi += queue.get()#pega o valor da parcela do pi calculada
 
     fim = time.time()  # Fim da contagem de tempo
     tempo_execucao = fim - inicio
