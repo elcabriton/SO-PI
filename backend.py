@@ -20,7 +20,7 @@ def calcular_pi(num_iteracoes, num_threads):
         fim_parte = inicio_parte + tamanho_parte
         processo = multiprocessing.Process(target=calcular_pi_parte, args=(inicio_parte, fim_parte, queue))
         processo.start()
-        processos.append(processo)
+        processos.append(processo)#adiciona o processo na lista
 
     pi = 0.0
     for processo in processos:
